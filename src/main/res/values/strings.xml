@@ -9,6 +9,12 @@
     <string name="ingresaEmail">Ingresa_email</string>
     <string name="Appestor_aplicaciones">APP_APLICACIONES_21</string>
     <string name="title_activity_registro">registro</string>
+    <string name="txtnombre">nombre</string>
+    <string name="txtemail">email</string>
+    <string name="txtpassw">contrasena</string>
+    <string name="Appestor_Recovery">recuperar contraseña</string>
+    <string name="title_contrasena">Recuperar Contraseñas</string>
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

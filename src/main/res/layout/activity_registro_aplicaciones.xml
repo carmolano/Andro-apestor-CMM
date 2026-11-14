@@ -7,4 +7,28 @@
     android:layout_height="match_parent"
     tools:context=".registro_aplicaciones">
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="268dp"
+        android:layout_height="40dp"
+        android:text="lista de aplicaciones"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="59dp" />
+
+    <ListView
+        android:layout_width="413dp"
+        android:layout_height="503dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        android:textOff="atras"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="646dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
