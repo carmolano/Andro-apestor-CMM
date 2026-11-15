@@ -84,4 +84,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.444" />
+
+    <Button
+        android:id="@+id/btnSensores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sensores (GPS y Acelerómetro)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.657"
+        tools:layout_editor_absoluteX="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

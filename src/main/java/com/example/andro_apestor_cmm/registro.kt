@@ -6,6 +6,7 @@ import android.widget.EditText
 import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -53,7 +54,7 @@ class registro : AppCompatActivity() {
                 name = nombre,
                 email = email,
                 password = password,
-                role = "USER"
+                role = "ADMIN"
             )
 
             RetrofitClient.instance.register("Bearer $token", nuevoUsuario).enqueue(object : Callback<Any> {
@@ -68,11 +69,12 @@ class registro : AppCompatActivity() {
                         ).show()
                         finish()
                     } else {
-                        Toast.makeText(
-                            this@registro,
-                            "Error al registrar (Código: ${response.code()})",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        val errorDetalle = response.errorBody()?.string() ?: "Sin detalle"
+                        AlertDialog.Builder(this@registro)
+                            .setTitle("Error ${response.code()}")
+                            .setMessage(errorDetalle)
+                            .setPositiveButton("OK", null)
+                            .show()
                     }
                 }
 
