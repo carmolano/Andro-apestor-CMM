@@ -4,14 +4,19 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiService {
     @POST("api/auth/login")
     fun login(@Body request: LoginRequest): Call<LoginResponse>
 
-    @POST("api/auth/register")
-    fun register(@Body request: RegisterRequest): Call<Any>
+
+    @POST("api/users")
+    fun register(
+        @Header("Authorization") token: String,
+        @Body request: RegisterRequest
+    ): Call<Any>
 }
 
 object RetrofitClient {
@@ -25,4 +30,3 @@ object RetrofitClient {
             .create(ApiService::class.java)
     }
 }
-

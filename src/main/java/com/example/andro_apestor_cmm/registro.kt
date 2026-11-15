@@ -1,5 +1,6 @@
 package com.example.andro_apestor_cmm
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
@@ -36,32 +37,40 @@ class registro : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            val prefs = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+            val token = prefs.getString("jwt_token", "") ?: ""
+
+            if (token.isEmpty()) {
+                Toast.makeText(this, "Inicia sesión como admin primero para registrar usuarios", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             btnGuardarData.isEnabled = false
-            Toast.makeText(this, "Guardando usuario en la nube...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Guardando usuario en TiDB...", Toast.LENGTH_SHORT).show()
 
             val nuevoUsuario = RegisterRequest(
                 id = idUsuario,
                 name = nombre,
                 email = email,
                 password = password,
-                role = "admin"
+                role = "USER"
             )
 
-            RetrofitClient.instance.register(nuevoUsuario).enqueue(object : Callback<Any> {
+            RetrofitClient.instance.register("Bearer $token", nuevoUsuario).enqueue(object : Callback<Any> {
                 override fun onResponse(call: Call<Any>, response: Response<Any>) {
                     btnGuardarData.isEnabled = true
 
                     if (response.isSuccessful) {
                         Toast.makeText(
                             this@registro,
-                            "¡Usuario registrado con éxito!",
+                            "¡Usuario registrado con éxito en TiDB!",
                             Toast.LENGTH_LONG
                         ).show()
-                        finish() // Cierra registro y regresa directo al login
+                        finish()
                     } else {
                         Toast.makeText(
                             this@registro,
-                            "Error al registrar (Código: ${response.code()}). Verifica que el ID o correo no existan.",
+                            "Error al registrar (Código: ${response.code()})",
                             Toast.LENGTH_LONG
                         ).show()
                     }
