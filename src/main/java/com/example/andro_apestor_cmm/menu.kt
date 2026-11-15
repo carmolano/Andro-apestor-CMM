@@ -41,6 +41,12 @@ class menu : AppCompatActivity() {
             finish()
         }
 
+        val btnSensores = findViewById<Button>(R.id.btnSensores)
+
+        btnSensores.setOnClickListener {
+            startActivity(Intent(this, SensoresActivity::class.java))
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

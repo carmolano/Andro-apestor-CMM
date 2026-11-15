@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sensores del Dispositivo"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- SECCIÓN ACELERÓMETRO -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. Acelerómetro (m/s²)"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvAcelerometro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="X: 0.00\nY: 0.00\nZ: 0.00"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:background="#EFEFEF"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvEstadoMovimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estado: Esperando lectura..."
+        android:textStyle="italic"
+        android:layout_marginBottom="24dp" />
+
+    <!-- SECCIÓN GPS -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. Ubicación GPS"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvGps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Latitud: --\nLongitud: --\nAltitud: --"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:background="#EFEFEF"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnObtenerGps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activar / Actualizar GPS"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnVolverMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volver al Menú" />
+
+</LinearLayout>
